@@ -1,16 +1,16 @@
 package com.bean;
 
 public class eProductBean {
-	private Integer productId;
-	private String productName;
-	private String category;
-	private Integer qty;
-	private Float price;
+    private Integer ProductId;
+    private String productName;
+    private String category;
+    private Integer qty;
+    private Float price;
 	public Integer getProductId() {
-		return productId;
+		return ProductId;
 	}
 	public void setProductId(Integer productId) {
-		this.productId = productId;
+		this.ProductId = productId;
 	}
 	public String getProductName() {
 		return productName;
@@ -36,6 +36,6 @@ public class eProductBean {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
-	
-	
-}
+    
+    
+   }
