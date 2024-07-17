@@ -12,24 +12,28 @@ import com.bean.eProductBean;
 @Repository
 public class EProductDao {
 
-    @Autowired
-    JdbcTemplate stmt;
+	@Autowired
+	JdbcTemplate stmt;
 
-    public void addProduct(eProductBean productbean) {
-        stmt.update("INSERT INTO products (productName, category, qty, price) VALUES (?, ?, ?, ?)",
-                productbean.getProductName(), productbean.getCategory(), productbean.getQty(), productbean.getPrice());
-    }
+	public void addProduct(eProductBean productBean) {
+		stmt.update("insert into products (productName,category,price,qty,productImagePath) values (?,?,?,?,?) ",
+				productBean.getProductName(), productBean.getCategory(), productBean.getPrice(), productBean.getQty(),productBean.getProductImagePath());
+	}
 
-    public List<eProductBean> getAllProducts() {
-        List<eProductBean> list = stmt.query("SELECT * FROM products", new BeanPropertyRowMapper<>(eProductBean.class));
-        return list;
-    }
+	public List<eProductBean> getAllProducts() {
+		List<eProductBean> list = stmt.query("select * from products",
+				new BeanPropertyRowMapper<eProductBean>(eProductBean.class));
+		return list;
+	}
 
-    public void deleteProduct(Integer ProductId) {
-        stmt.update("DELETE FROM products WHERE productId = ?", ProductId);
-    }
+	public void deleteProduct(Integer productId) {
+		stmt.update("delete from products where productId = ? ", productId);
+	}
 
-    public void deleteProductByName(String productName) {
-        stmt.update("DELETE FROM products WHERE productName = ?", productName);
-    }
+	public eProductBean getProductById(Integer productId) {
+
+		eProductBean bean = stmt.queryForObject("select * from products where productId = ? ",
+				new BeanPropertyRowMapper<>(eProductBean.class), new Object[] { productId }); // name color
+		return bean;
+	}
 }

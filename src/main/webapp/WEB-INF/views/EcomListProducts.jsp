@@ -9,27 +9,32 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>List of Products</h2>
 
-	<h2>Products List</h2>
-	
+<a href="newproduct">New Product</a><br><br>
+
+<a href="ehome">Home</a><br><br>
+
+
 	<%
-		List<eProductBean> products = (List<eProductBean>) request.getAttribute("products");
+	List<eProductBean> products = (List<eProductBean>) request.getAttribute("products");
 	%>
+
 	<table border="1">
 		<tr>
-			<td>ProductId</td>
-			<td>ProductName</td>
-			<td>Action</td>
+			<th>ProductId</th>
+			<th>ProductName</th>
+			<th>Action</th>
 		</tr>
 		<%
-			for (eProductBean p : products)
-			{
-				out.print("<tr>");
-				out.print("<td>"+p.getProductId()+"</td><td>"+p.getProductName()+"</td><td> <a href='deleteProduct?ProductId="+p.getProductId()+"'>DELETE</a> ");
-				out.print("</tr>");
-			}
+		for (eProductBean p : products) {
+			out.print("<tr>");
+			out.print("<td>" + p.getProductId() + "</td><td>" + p.getProductName() + "</td><td><a href='deleteproduct?productId="+p.getProductId()+"'>Delete</a> | <a href='viewproduct?productId="+p.getProductId()+"'>View</a></td>");
+			out.print("</tr>");
+
+		}
 		%>
-		
+
 	</table>
 	
 </body>

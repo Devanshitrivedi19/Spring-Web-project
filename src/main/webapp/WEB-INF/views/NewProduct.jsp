@@ -9,13 +9,13 @@
 <body>
 <h2>Insert New Product</h2>
 
-<form action="saveProduct" method="post">
-	Product Name: <input type="text" name="productName"/><br><br>
-	Category: <input type="text" name="category"/><br><br> 
-	Qty: <input type="text" name="qty"/><br><br>
-	Price: <input type="text" name="price"/><br><br>
-	
-	<input type="submit" value="Add Product"/>
+<form action="saveproduct" method="post" enctype="multipart/form-data">
+    Product Name: <input type="text" name="productName"/><br><br>
+    Category: <input type="text" name="category"/><br><br> 
+    Qty: <input type="text" name="qty"/><br><br>
+    Price: <input type="text" name="price"/><br><br>
+    MasterImage: <input type="file" name="masterImage"/><br><br>
+    <input type="submit" value="Add Product"/>
 </form>
 </body>
 </html>

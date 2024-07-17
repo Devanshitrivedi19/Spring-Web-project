@@ -7,15 +7,17 @@
 <title>SignUp Page</title>
 </head>
 <body>
-	<h2>Ecom SignUp</h2>
+	<h2>Ecom Signup Page</h2>
+
+<form action="esignup" method="post" enctype="multipart/form-data">
+
+	FirstName : <input type="text" name="firstName"/><br><br> 
+	Email : <input type="text" name="email"/><br><br> 
+	Password : <input type="password" name="password"/><br><br> 
+	Profile : <input type="file" name="profilePic"/> <br><Br> 
 	
-	<form action="esignup" method="post">
-	
-		FirstName: <input type="text" name="firstName" /><br><br>
-		Email : <input type="text" name="email"/><br><br>
-		Password: <input type="password" name="password"/><br><br>
-		
-		<input type="submit" value="Sign Up"/>
-	</form>
+	<input type="submit" value="Signup"/>
+</form>
+
 </body>
 </html>
