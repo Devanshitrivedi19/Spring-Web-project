@@ -10,11 +10,11 @@ import com.bean.eUserBean;
 @Repository
 public class EuserDao {
 
-	@Autowired // instance eject
-	JdbcTemplate stmt; // update() query()
+	@Autowired 
+	JdbcTemplate stmt; 
 
 	public void insertUser(eUserBean userBean) {
-		// query ->
+		
 		stmt.update("insert into users(firstName,email,password,profilePicpath) values (?,?,?,?) ", userBean.getFirstName(),
 				userBean.getEmail(), userBean.getPassword(), userBean.getProfilePicPath());
 
