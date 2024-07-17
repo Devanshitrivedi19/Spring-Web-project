@@ -22,7 +22,6 @@ public class EuserDao {
 
 
 	public eUserBean authenticate(String email, String password) {
-		// select * from users where email = ? and password = ?
 		try {
 			eUserBean userBean = stmt.queryForObject("select * from users where email = ? and password = ?",
 					new BeanPropertyRowMapper<>(eUserBean.class), new Object[] { email, password });
